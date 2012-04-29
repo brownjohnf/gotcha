@@ -22,6 +22,17 @@ module Gotcha
     end
   end
 
+  # Get a non-random Gotcha from the registered types
+  def self.non_random(type)
+    if !@gotcha_types.nil? && type == :sum
+      SumGotcha.new
+    elsif !@gotcha_types.nil? && type == :backward
+      BackwardGotcha.new
+    elsif !@gotcha_types.nil? && type = random_type
+      type.new
+    end
+  end
+  
   # Whether or not to skip validation
   def self.skip_validation?
     @skip_validation || false

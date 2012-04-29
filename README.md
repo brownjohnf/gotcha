@@ -2,17 +2,31 @@
 
 Adding captchas to some action should be really easy.  It shouldn't require a migration, like [Brain Buster](https://github.com/rsanheim/brain_buster) or API calls like [reCAPTCHA](http://www.google.com/recaptcha).  Gotcha is an easy way to ask (custom) questions of your users in order for them to perform some action (like submitting a form).
 
+# What's with this fork?
+
+I wanted to be able to select a captcha method when calling captcha in a form. This fork of the gem allows you to to specify either `:sum` or `:backward` to the `gotcha` call. If you use `gotcha` alone, it'll behave normally (select a random gotcha).
+
+    = gotcha(:gotcha_type => :sum)
+
+for SumGotcha, or
+
+    = gotcha(:gotcha_type => :backward)
+
+for BackwardGotcha, or
+
+    = gotcha
+
+for a random gotcha.
+
+Pretty basic, but useful. Unfortunately, this is an incomplete project. I needed it quickly for a project. Ideally, you'd be able to specify any installed gotcha.
+
 ---
 
 ## Installation
 
-To install Gotcha, just run:
+Put it in your Gemfile, referencing this git repository:
 
-    $ gem install gotcha
-
-Or put it in your Gemfile
-
-    gem 'gotcha'
+    gem 'gotcha', :git => git://github.com/brownjohnf/gotcha.git
 
 ---
 
